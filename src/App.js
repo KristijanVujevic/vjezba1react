@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import Firstchild from "./Components/firstchild";
+import Secondchild from "./Components/secondchild";
+import Thirdchild from "./Components/thirdchild";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.korisnici = {
+      users: [
+        { name: "John", age: 25 },
+        { name: "Alice", age: 30 },
+        { name: "Bob", age: 28 },
+      ],
+    };
+  }
+
+  render() {
+    const { users } = this.korisnici;
+    return (
+      <div className="App">
+        <Firstchild name={users[0].name} age={users[0].age} />
+        <Secondchild name={users[1].name} age={users[1].age} />
+        <Thirdchild name={users[2].name} age={users[2].age} />
+      </div>
+    );
+  }
 }
 
 export default App;
